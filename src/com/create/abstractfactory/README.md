@@ -6,7 +6,7 @@
 当你要强调一系列相关的产品对象的设计以便进行联合使用时
 当你提供一个产品类库，而只想显示它们的接口而不实现时
 #3.结构
-![github](http://github.com/IceDcap/Gof-DesignPatterns/tree/master/uml/AbstractFactory.JPG "AbstractFactory")
+![github](http://github.com/IceDcap/Gof-DesignPatterns/blob/tree/master/uml/AbstractFactory.JPG "AbstractFactory")
 #4.参与者
     AbstractFactory
         ----声明一个创建抽象产品对象的操作接口

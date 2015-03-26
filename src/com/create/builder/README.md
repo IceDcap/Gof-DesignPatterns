@@ -4,7 +4,7 @@
 当创建复杂对象的算法应该独立于该对象的组成部分以及它们的装配方式时
     当构建过程必须允许被构造的对象有不同表示时
 #3.结构
-![github](http://github.com/IceDcap/Gof-DesignPatterns/tree/master/uml/Builder.JPG "Builder")
+![github](http://github.com/IceDcap/Gof-DesignPatterns/blob/tree/master/uml/Builder.JPG "Builder")
 #4.参与者
     Builder(TextConverter)
         ----为创建一个Product对象的各个部件指定抽象接口

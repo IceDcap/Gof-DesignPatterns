@@ -7,7 +7,7 @@
     当一个类希望由它的子类来指定它所创建的对象的时候
     当类将创建对象的职责委托给多个帮助子类中的某一个，并且你希望将哪一个帮助子类是代理者这一信息局部化的时候
 #4.结构
-![github](http://github.com/IceDcap/Gof-DesignPatterns/tree/master/uml/Factory.JPG "Factory")
+![github](http://github.com/IceDcap/Gof-DesignPatterns/blob/tree/master/uml/Factory.JPG "Factory")
 #5.参与者
     Product（Document）
         ----定义工厂方法所创建的对象的接口

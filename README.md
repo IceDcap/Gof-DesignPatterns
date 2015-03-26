@@ -4,7 +4,7 @@
 
 # 23中设计模式分类
 如下表所示
-![github](http://github.com/IceDcap/Gof-DesignPatterns/blob/tree/master/uml/category.png "category")
+![github](https://github.com/IceDcap/Gof-DesignPatterns/blob/tree/master/uml/category.png "category")
     
     我们根据两条准则对模式进行分类。第一是目的准则,即模式是用来完成什么工作的。
     模式依据其目的可分为创建型(Creational)、结构型(Structural)、或行为型(Behavioral)三种。

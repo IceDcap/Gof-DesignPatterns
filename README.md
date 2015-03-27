@@ -1,5 +1,4 @@
- Gof-DesignPatterns
- =================
+#Gof-DesignPatterns
 23 design patterns samples in Java
 
 # 23中设计模式分类
@@ -22,3 +21,9 @@
     例如,Prototype常用来替代AbstractFactory;
     有些模式尽管使用意图不同,但产生的设计结果是很相似的,
     例如,Composite和Decorator的结构图是相似的。
+    
+    
+    
+# 结构性模式
+结构型模式涉及到如何组合类与对象以获得更大的结构。结构型类模式采用继承机制来组合接口或实现。
+一个简单地例子是采用多重继承方法将两个以上的类组合成一个类，结果这个类包含了所有父类的性质。

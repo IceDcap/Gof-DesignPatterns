@@ -1,3 +1,5 @@
+Builder(生成器)————对象创建型
+------------------------------------
 #1.意图：
 将一个复杂对象的构建和它的表示分离，使得同样的构建过程可以创建不同的表示
 #2.使用环境：
@@ -7,13 +9,13 @@
 ![github](https://github.com/IceDcap/Gof-DesignPatterns/blob/master/uml/Builder.JPG "Builder")
 #4.参与者
     Builder(TextConverter)
-        ----为创建一个Product对象的各个部件指定抽象接口
+        ————为创建一个Product对象的各个部件指定抽象接口
     ConcreteBuilder(ASCIIConverter, TeXConverter, TextWidgetConverter)
-        ----实现Builder的接口以构造和装配该产品的各个部件
-        ----定义并明确它所创建的表示
-        ----提供一个检索产品的接口(例如, getASCIIText(), getTextWidget())
+        ————实现Builder的接口以构造和装配该产品的各个部件
+        ————定义并明确它所创建的表示
+        ————提供一个检索产品的接口(例如, getASCIIText(), getTextWidget())
     Director
-        ----构造一个使用Builder接口的对象
+        ————构造一个使用Builder接口的对象
     Product
-        ----表示被构造的复杂对象（产品）,ConcreteBuilder负责该产品的内部表示并定义它的装配过程
-        ----包含定义组成部件的类，包括将这些部件装配成最终产品的接口
+        ————表示被构造的复杂对象（产品）,ConcreteBuilder负责该产品的内部表示并定义它的装配过程
+        ————包含定义组成部件的类，包括将这些部件装配成最终产品的接口

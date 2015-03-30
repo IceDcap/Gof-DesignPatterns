@@ -24,17 +24,17 @@ Surrogate
 
 #5.参与者
     Proxy
-        ----保存一个引用使得代理可以访问实体。若RealSubject和Subject的接口相同,Proxy会引用Subject
-        ----提供一个与Subject的接口相同的接口,这样代理就可以用来替代实体
-        ----控制对实体的存取,并可能负责创建和删除它
-        ----其他功能依赖于代理的类型:
+        ————保存一个引用使得代理可以访问实体。若RealSubject和Subject的接口相同,Proxy会引用Subject
+        ————提供一个与Subject的接口相同的接口,这样代理就可以用来替代实体
+        ————控制对实体的存取,并可能负责创建和删除它
+        ————其他功能依赖于代理的类型:
             RemoteProxy负责对请求及其参数进行编码,并向不同地址空间中的实体发送已编 码的请求。
             VirtualProxy可以缓存实体的附加信息,以便延迟对它的访问。
             ProtectionProxy检查调用者是否具有实现一个请求所必需的访问权限。
     Subject
-        ----定义RealSubject和Proxy的共用接口，这样就在任何使用RealSubject的地方都可以使用Proxy
+        ————定义RealSubject和Proxy的共用接口，这样就在任何使用RealSubject的地方都可以使用Proxy
     RealSubject
-        ----定义Proxy所代表的实体
+        ————定义Proxy所代表的实体
     
 #6.参考
 [http://www.cnblogs.com/linjiqin/archive/2011/02/18/1957600.html](http://www.cnblogs.com/linjiqin/archive/2011/02/18/1957600.html)

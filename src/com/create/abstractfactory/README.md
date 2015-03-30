@@ -1,3 +1,5 @@
+Abstract Factory(抽象工厂)————对象创建型
+------------------------------------
 #1.意图：
 提供一个创建一系列相关或相互依赖对象接口，而无需指定它们具体的类
 #2.使用环境：
@@ -9,13 +11,13 @@
 ![github](https://github.com/IceDcap/Gof-DesignPatterns/blob/master/uml/AbstractFactory.JPG "AbstractFactory")
 #4.参与者
     AbstractFactory
-        ----声明一个创建抽象产品对象的操作接口
+        ————声明一个创建抽象产品对象的操作接口
     ConcreteFactory
-        ----实现创建具体产品对象的操作
+        ————实现创建具体产品对象的操作
     AbstractProduct
-        ----为一类产品对象声明一个接口
+        ————为一类产品对象声明一个接口
     ConcreteProduct
-        ----定义一个将被相应的具体工厂创建的产品对象
-        ----实现AbstractProduct接口
+        ————定义一个将被相应的具体工厂创建的产品对象
+        ————实现AbstractProduct接口
     Client
-        ----仅使用由AbstractFactory和AbstractProduct类声明的接口
+        ————仅使用由AbstractFactory和AbstractProduct类声明的接口

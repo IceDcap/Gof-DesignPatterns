@@ -1,3 +1,5 @@
+Prototype(原型)————对象创建型
+------------------------------------
 #1.意图：
 用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象
 #2.使用环境：
@@ -9,8 +11,8 @@
 ![github](https://github.com/IceDcap/Gof-DesignPatterns/blob/master/uml/Prototype.JPG "Prototype")
 #4.参与者
     Prototype
-        ----声明一个克隆自身的接口
+        ————声明一个克隆自身的接口
     ConcretePrototype
-        ----实现一个克隆自身的操作
+        ————实现一个克隆自身的操作
     Client
-        ----让一个原型克隆自身从而创建一个新的对象
+        ————让一个原型克隆自身从而创建一个新的对象

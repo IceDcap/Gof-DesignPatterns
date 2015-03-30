@@ -1,3 +1,5 @@
+Singleton(单件)————对象创建型
+------------------------------------
 #1.意图：
 保证一个类仅有一个实例，并提供一个访问它的全局访问点
 #2.使用环境：
@@ -7,8 +9,8 @@
 ![github](https://github.com/IceDcap/Gof-DesignPatterns/blob/master/uml/Singleton.JPG "Singleton")
 #4.参与者
 Singleton
-        ----定义一个Instance操作，允许客户访问它的唯一实例。Instance是一个类操作
-        ----可能负责创建它自己的唯一实现
+        ————定义一个Instance操作，允许客户访问它的唯一实例。Instance是一个类操作
+        ————可能负责创建它自己的唯一实现
 
 # 下面就用代码具体说说单例模式：
 在开发中我们最常使用的就是如下代码的单例

@@ -1,3 +1,5 @@
+Factory Method(工厂方法)————类创建型
+------------------------------------
 #1.意图：
 定义一个用于创建对象的接口，让子类决定实例化哪个类，FactoryMethod使一个类的实例化延迟到子类
 #2.别名：
@@ -10,11 +12,11 @@
 ![github](https://github.com/IceDcap/Gof-DesignPatterns/blob/master/uml/Factory.JPG "Factory")
 #5.参与者
     Product（Document）
-        ----定义工厂方法所创建的对象的接口
+        ————定义工厂方法所创建的对象的接口
     ConcreteProduct（MyDocument）
-        ----实现Product接口
+        ————实现Product接口
     Creator（Application）
-        ----声明工厂方法，该方法返回一个Product类型的对象。Creator也可以定义一个工厂方法的缺省实现，它返回一个缺省的ConcreteProduct对象
-        ----可以调用工厂方法以创建一个Product对象
+        ————声明工厂方法，该方法返回一个Product类型的对象。Creator也可以定义一个工厂方法的缺省实现，它返回一个缺省的ConcreteProduct对象
+        ————可以调用工厂方法以创建一个Product对象
     ConcreteCreator（MyApplication）
-        ----重定义一个工厂方法以返回一个ConcreteProduct实例
+        ————重定义一个工厂方法以返回一个ConcreteProduct实例

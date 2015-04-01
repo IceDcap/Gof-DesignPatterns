@@ -44,7 +44,9 @@ Handler/Body
 3. 卡车有载货的功能，巴士有载客的功能。
 
 UML示例
+
 ![github](https://github.com/IceDcap/Gof-DesignPatterns/blob/master/uml/bridgesample.png "bridgesample")
+
 将车辆的发动机类型再抽象为柴油型和汽油型
 
 Abstraction(AbstractVehicle.java)

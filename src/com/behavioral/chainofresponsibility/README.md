@@ -30,15 +30,17 @@ Chain of responsibility(职责链)————对象行为型模式
 
 Handler(MailHandler.java)
 
-    public abstract class MailHandler {
-        protected MailHandler successor;
-    
-        public void setSuccessor(MailHandler successor) {
-            this.successor = successor;
-        }
-    
-        protected abstract void handleRequest(String mailType);
+```Java
+public abstract class MailHandler {
+    protected MailHandler successor;
+
+    public void setSuccessor(MailHandler successor) {
+        this.successor = successor;
     }
+
+    protected abstract void handleRequest(String mailType);
+}
+```
     
 ConcreteHandler(SpanHandler.java FanHandler.java CompliantHandler.java SuggestHandler.java)
     
@@ -105,5 +107,6 @@ Client.java
 
 #7.参考
 Head First设计模式
+
 [http://blog.csdn.net/vincentzhao2009/article/details/6216493](http://blog.csdn.net/vincentzhao2009/article/details/6216493)
 [http://www.cnblogs.com/itTeacher/archive/2012/12/05/2803618.html](http://www.cnblogs.com/itTeacher/archive/2012/12/05/2803618.html)

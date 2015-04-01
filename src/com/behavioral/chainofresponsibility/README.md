@@ -43,7 +43,8 @@ public abstract class MailHandler {
 ```
     
 ConcreteHandler(SpanHandler.java FanHandler.java CompliantHandler.java SuggestHandler.java)
-    
+
+```Java    
     public class SpamHandler extends MailHandler {
         @Override
         protected void handleRequest(String mailType) {
@@ -78,9 +79,11 @@ ConcreteHandler(SpanHandler.java FanHandler.java CompliantHandler.java SuggestHa
                 System.out.println("send the suggest email to develop department.");
         }
     }
-    
+```    
+
 Client.java
 
+```Java
     public class Client {
         public static void main(String[] args) {
             MailHandler spam = new SpamHandler();
@@ -96,7 +99,7 @@ Client.java
             spam.handleRequest("suggest");
         }
     }
-
+```
     
 #6.效果
 ——降低耦合度

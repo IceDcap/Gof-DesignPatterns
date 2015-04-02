@@ -27,16 +27,19 @@ Adapter（适配器）————类对象结构型
 例如手机充电，充电电压需要5v（Target），手机充电器（或叫适配器）可以将22v电压转化为5v（Adapter），充电对象手机（Adaptee）
 
 Target(VoltageAdapter.java)
-    
+
+```Java
     /**
      * Target
      */
     public interface VoltageAdapter {
         public int transformVoltage();
     }
+```
     
 Adapter(PhoneAdapter.java)
 
+```Java   
     /**
      * Adapter
      */
@@ -73,9 +76,11 @@ Adapter(PhoneAdapter.java)
             return requestVoltage;
         }
     }
+```
     
 Adaptee(Phone.java)
 
+```Java
     /**
      * Adaptee
      */
@@ -94,9 +99,11 @@ Adaptee(Phone.java)
             System.out.println("The phone charge voltage is " + adapter.transformVoltage() + "v.");
         }
     }
+```
     
 Client.java
-    
+
+```Java    
     public class Client {
         public static void main(String[] args) {
             Phone phone = new Phone();
@@ -105,4 +112,4 @@ Client.java
             phone.inputVoltage();
         }
     }
-     
+```     

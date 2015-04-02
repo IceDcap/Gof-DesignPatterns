@@ -32,12 +32,15 @@ Decorator(装饰)————对象结构型
 
 Component(Project.java)
 
+```Java
     public interface Project {
         public void doCoding();
     }
+```
 
 ConcreteComponent(Developer.java)
 
+```Java
     public class Developer implements Project {
         private String name;
     
@@ -51,9 +54,11 @@ ConcreteComponent(Developer.java)
             System.out.println("finish coding！！");
         }
     }
+```
     
 Decorator(Manager.java)
     
+```Java
     public class Manager implements Project {
         private Project mProject;
     
@@ -75,9 +80,11 @@ Decorator(Manager.java)
         public void doEarlyWork(){}
         public void doEndWork(){}
     }
+```
     
 ConcreteDecorator(ManagerLiu.java & ManagerWang.java)
 
+```Java
     public class ManagerLiu extends Manager {
         public ManagerLiu(Project project) {
             super(project);
@@ -106,9 +113,11 @@ ConcreteDecorator(ManagerLiu.java & ManagerWang.java)
             System.out.println("Manager Wang is doing ending.");
         }
     }
+```
     
 Client.java
     
+```Java
     public class Client {
         public static void main(String[] args) {
             Project developer = new Developer("developerA");
@@ -118,6 +127,7 @@ Client.java
             managerWang.doCoding();
         }
     }
+```
     
 result
 

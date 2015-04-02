@@ -38,6 +38,7 @@ Flyweight(享元)————对象结构型
     
 WebSite.java
 
+```Java
     package flyweight;
     
     public abstract class WebSite {
@@ -53,9 +54,11 @@ WebSite.java
     
         public abstract void use(User user);
     }
+```
     
 ConcurrentWebSite.java
     
+```Java
     package flyweight;
     
     public class ConcurrentWebSite extends WebSite {
@@ -71,9 +74,11 @@ ConcurrentWebSite.java
             System.out.println();
         }
     }
+```
     
 WebSiteFactory.java
-    
+
+```Java    
     package flyweight;
     
     import java.util.HashMap;
@@ -97,9 +102,11 @@ WebSiteFactory.java
             return webSites.size();
         }
     }
+```
     
 User.java
     
+```Java
     package flyweight;
     
     public class User {
@@ -119,9 +126,11 @@ User.java
             return passWd;
         }
     }
+```
     
 Test.java
-    
+
+```Java    
     package flyweight;
     
     public class Test {
@@ -153,6 +162,7 @@ Test.java
             System.out.println("WebSites Instances Count: " + WebSiteFactory.webSitesCount());
         }
     }
+```
 
 输出结果
     

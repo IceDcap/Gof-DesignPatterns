@@ -50,7 +50,8 @@ UML示例
 将车辆的发动机类型再抽象为柴油型和汽油型
 
 Abstraction(AbstractVehicle.java)
-    
+
+```Java
     public abstract class AbstractVehicle implements Vehicle {
     
         private Engine mEngine;
@@ -75,9 +76,11 @@ Abstraction(AbstractVehicle.java)
         }
     
     }
+```
     
 RefinedAbstraction(Bus.java & Truck.java)
-    
+
+```Java    
     public class Bus extends AbstractVehicle {
     
         public void loadPeople() {
@@ -91,18 +94,22 @@ RefinedAbstraction(Bus.java & Truck.java)
             System.out.println("this is a " + carInfo() + " truck," + " can load woods.");
         }
     }
+```
     
 Implementor(Engine.java)
 
+```Java
     public interface Engine {
         public void fireUp();
         public void start();
         public void stop();
         public String engineInfo();
     }
+```
     
 ConcreteImplementor(CasolineEngine.java & DieselEngine.java)
     
+```Java
     public class CasolineEngine implements Engine{
         @Override
         public void fireUp() {
@@ -146,9 +153,11 @@ ConcreteImplementor(CasolineEngine.java & DieselEngine.java)
             return "diesel";
         }
     }
+```
 
 Client.java
 
+```Java
     public class Client {
         public static void main(String[] args) {
             //casoline bus
@@ -166,6 +175,7 @@ Client.java
     
         }
     }
+```
     
 result
     

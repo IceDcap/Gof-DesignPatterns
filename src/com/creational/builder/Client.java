@@ -16,7 +16,7 @@ public class Client {
         rtfReader.parseRTF(2);
 
         //get product
-        ASCIIConverter text1 = new ASCIIConverter();
-        text1.getASCIIText();
+        ASCIIText product = asciiConverter.getASCIIText();
+        System.out.println(product.getName());
     }
 }

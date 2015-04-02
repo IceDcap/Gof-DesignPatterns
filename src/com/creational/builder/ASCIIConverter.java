@@ -9,6 +9,7 @@ public class ASCIIConverter extends TextConverter {
     @Override
     public void convertCharacter(char i) {
         super.convertCharacter(i);
+        text = new ASCIIText("Product ASCII Text");
         System.out.println("execute Plan A for ASCII to convert character");
     }
 

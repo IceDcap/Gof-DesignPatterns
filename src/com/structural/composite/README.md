@@ -47,6 +47,7 @@ Composite(组合)————对象结构型
 
 Component(Universities.java)
     
+```Java
     /**
      * Component
      */
@@ -69,9 +70,11 @@ Component(Universities.java)
         protected abstract void remove(Universities universities);
         protected abstract void getChild(int depth);
     }
+```
 
 Leaf(ArtiestCollege.java & EngineeringCollege)
 
+```Java
     public class ArtiestCollege extends Universities {
         protected ArtiestCollege(String name) {
             super(name);
@@ -121,9 +124,10 @@ Leaf(ArtiestCollege.java & EngineeringCollege)
             System.out.println(new String(sb) + this.getName());
         }
     }
-     
+```     
 Composite(ConcreteUniversity.java)
 
+```Java
     public class ConcreteUniversity extends Universities {
         private List<Universities> list;
     
@@ -154,9 +158,11 @@ Composite(ConcreteUniversity.java)
             }
         }
     }
+```
 
 Client.java
     
+```Java
     public class Client {
         public static void main(String[] args) {
             Universities root = new ConcreteUniversity("北京高校");
@@ -182,6 +188,7 @@ Client.java
     
         }
     }
+```
 
 result
 

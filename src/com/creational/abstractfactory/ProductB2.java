@@ -5,6 +5,6 @@ package com.creational.abstractfactory;
  */
 public class ProductB2 extends AbstractProductB {
     public ProductB2() {
-        System.out.println("creational product B2 success!");
+        System.out.println("create product B2 success!");
     }
 }

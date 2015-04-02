@@ -6,7 +6,7 @@ package com.creational.factorymethod;
  */
 public class Application {
     public MyDocumnet createDocument(){
-        System.out.println("creational document from Creator");
+        System.out.println("create document from Creator");
         return new MyDocumnet("sophia parent");
     }
     public void newDocument(){

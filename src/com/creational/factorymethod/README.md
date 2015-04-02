@@ -21,3 +21,106 @@ Factory Method(工厂方法)————类创建型
         ————可以调用工厂方法以创建一个Product对象
     ConcreteCreator（MyApplication）
         ————重定义一个工厂方法以返回一个ConcreteProduct实例
+        
+#6.代码解释
+创建一个文档类Document.java(Product)并定义了一些接口,MyDocument(ConcreteProduct)类实现了Document接口
+声明创建者Application(Creator)该类声明工厂方法返回产品实例(可以缺省实现，由其子类来完成),MyApplication(
+ConcreteCreator)类重定义或者补充父类Creator的工厂方法
+
+Document.java
+
+```Java
+    public abstract class Document {
+        public abstract void open();
+        public abstract void close();
+        public abstract void save();
+        public abstract void revert();
+    
+    }
+```
+
+MyDocument.java
+
+```Java
+    public class MyDocumnet extends Document{
+        private String name;
+        public MyDocumnet(String name) {
+            this.name = name;
+        }
+    
+        @Override
+        public void open() {
+            System.out.println("open my document: " + name);
+        }
+    
+        @Override
+        public void close() {
+            System.out.println("close my document: " + name);
+        }
+    
+        @Override
+        public void save() {
+            System.out.println("save my document: " + name);
+        }
+    
+        @Override
+        public void revert() {
+            System.out.println("revert my document: " + name);
+        }
+    }
+```
+
+Application.java
+
+```Java
+    public class Application {
+        public MyDocumnet createDocument(){
+            System.out.println("create document from Creator");
+            return new MyDocumnet("sophia parent");
+        }
+        public void newDocument(){
+            System.out.println("new document from Creator");
+        }
+        public void openDocument(){
+            System.out.println("open document from Creator");
+        }
+    }
+```
+
+MyApplication.java
+
+```Java
+    public class MyApplication extends Application {
+    
+        @Override
+        public MyDocumnet createDocument() {
+            System.out.println("create document from MyApplication");
+            return new MyDocumnet("sophia");
+        }
+    }
+```
+
+Client.java
+
+```Java
+    public class Client {
+    
+        public static void main(String[] args) {
+            MyApplication myApplication = new MyApplication();
+            MyDocumnet myDocumnet = myApplication.createDocument();
+            myDocumnet.open();
+            myDocumnet.revert();
+            myDocumnet.save();
+            myDocumnet.close();
+        }
+    }
+```
+
+result
+
+    create document from MyApplication
+    open my document: sophia
+    revert my document: sophia
+    save my document: sophia
+    close my document: sophia
+    

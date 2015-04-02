@@ -41,13 +41,16 @@ Command(命令)————对象行为型模式
 的开关命令(ConcreteCommand)来执行。
 
 Command.java
-    
+
+```Java
     public interface Command {
         public void execute();
     }
-    
+```
+
 ConcreteCommand(LightOnCommand.java LightOffCommand.java)
 
+```Java
     public class LightOnCommand implements Command {
         private Light light;
     
@@ -73,9 +76,11 @@ ConcreteCommand(LightOnCommand.java LightOffCommand.java)
             light.off();
         }
     }
+```
     
 Invoker(RemoteControl.java)
 
+```Java
     public class RemoteControl {
         private Command menu;
     
@@ -87,9 +92,11 @@ Invoker(RemoteControl.java)
             menu.execute();
         }
     }
+```
     
 Receiver(Light.java)
 
+```Java
     public class Light {
         private String brandName;
     
@@ -112,9 +119,11 @@ Receiver(Light.java)
             System.out.println(brandName + " turned off...");
         }
     }
+```
 
 Client.java
 
+```Java
     public class Client {
         public static void main(String[] args) {
             Light light = new Light("nb");
@@ -128,7 +137,7 @@ Client.java
             control.menuPressed();
         }
     }
-
+```
     
 #6.效果
 Command模式有以下效果:

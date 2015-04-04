@@ -35,7 +35,9 @@ Mediator(中介者)————对象行为型模式
     public enum Identity {
         CONSUMER, OWNER
     }
-    
+```
+
+```Java
     public class ConcreteMediator implements Mediator {
         protected Colleague colleague;
     
@@ -132,4 +134,5 @@ result
 
 #7.参考
 [http://men4661273.iteye.com/blog/1634907](http://men4661273.iteye.com/blog/1634907)
+
 [http://haolloyin.blog.51cto.com/1177454/333810/](http://haolloyin.blog.51cto.com/1177454/333810/)

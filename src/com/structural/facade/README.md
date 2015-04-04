@@ -28,4 +28,5 @@ Facade(外观)————对象结构型
     
 #5.参考
 [http://www.blogjava.net/supercrsky/articles/202854.html](http://www.blogjava.net/supercrsky/articles/202854.html)
+
 [http://blog.csdn.net/hfmbook/article/details/7702642](http://blog.csdn.net/hfmbook/article/details/7702642)

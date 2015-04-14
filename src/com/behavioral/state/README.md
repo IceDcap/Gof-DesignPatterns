@@ -25,6 +25,7 @@ State(状态)————对象行为型模式
 
 #6.代码描述
 自动售糖机，具有以下几个状态和操作流程
+
 ![github](https://github.com/IceDcap/Gof-DesignPatterns/blob/master/uml/statemachine.png "statemachine")
 
 State(State.java)

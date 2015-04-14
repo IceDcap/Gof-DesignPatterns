@@ -14,6 +14,7 @@ Strategy(策略)————对象行为型模式
         各自的Strategy类中以代替这些条件语句
 #4.结构
 ![github](https://github.com/IceDcap/Gof-DesignPatterns/blob/master/uml/Strategy.JPG "Strategy")
+
 结构与状态模式一模一样！！
 #5.参与者
     Strategy(策略)

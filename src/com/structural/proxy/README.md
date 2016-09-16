@@ -35,7 +35,139 @@ Surrogate
         ————定义RealSubject和Proxy的共用接口，这样就在任何使用RealSubject的地方都可以使用Proxy
     RealSubject
         ————定义Proxy所代表的实体
-    
-#6.参考
+
+#8.代码解释
+打官司请律师是一个典型的代理模式，原告作为RealSubject角色将打官司的所有流程都交给了律师来做，而律师也充当着ProxySubject角色。诉讼流程可以抽象为一个Subject主题角色。
+```java
+public interface ILawsuit {
+    void submit();//提出诉讼
+
+    void burden();//进行举证
+
+    void defend();//开始辩护
+
+    void finish();//诉讼完成
+}
+
+public class YuanGao implements ILawsuit {
+    @Override
+    public void submit() {
+        System.out.println("老板拖欠工资，特此申请仲裁！");
+    }
+
+    @Override
+    public void burden() {
+        System.out.println("这是合同书以及一年内工资卡流水账。");
+    }
+
+    @Override
+    public void defend() {
+        System.out.println("证据确凿，不能再说什么了。");
+    }
+
+    @Override
+    public void finish() {
+        System.out.println("诉讼成功，判决老板七日内结算工资。");
+    }
+}
+
+public class Lawyer implements ILawsuit {
+    private ILawsuit mLawsuit;
+
+    public Lawyer(ILawsuit mLawsuit) {
+        this.mLawsuit = mLawsuit;
+    }
+
+    @Override
+    public void submit() {
+        mLawsuit.submit();
+    }
+
+    @Override
+    public void burden() {
+        mLawsuit.burden();
+    }
+
+    @Override
+    public void defend() {
+        mLawsuit.defend();
+    }
+
+    @Override
+    public void finish() {
+        mLawsuit.finish();
+    }
+}
+
+public class Client {
+
+    public static void main(String[] args) {
+        ILawsuit yuangao = new YuanGao();
+        Lawyer lawyer = new Lawyer(yuangao);
+        lawyer.submit();
+        lawyer.burden();
+        lawyer.defend();
+        lawyer.finish();
+
+    }
+}
+
+```
+
+结果
+```
+老板拖欠工资，特此申请仲裁！
+这是合同书以及一年内工资卡流水账。
+证据确凿，不能再说什么了。
+诉讼成功，判决老板七日内结算工资。
+```
+
+上述例子很简单，这也是静态代理的最常见的例子。对于动态代理来说，我们不必清楚原告中的具体代码，也没必要自己定义ProxySubject来实现Subject以及它的所有方法。而是将代理延迟到运行时。通过`InvocationHandler`接口定义一个动态代理类
+```java
+public class DynamicProxy implements InvocationHandler {
+    private Object object;//被代理的对象，具体不清楚是什么，在运行时自动获取
+
+    public DynamicProxy(Object object) {
+        this.object = object;
+    }
+
+    @Override
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+        Object result = method.invoke(object, args);
+        return result;
+    }
+}
+
+```
+
+```java
+public class Client {
+
+    public static void main(String[] args) {
+        ILawsuit yuangao = new YuanGao();
+
+        ////动态代理
+        System.out.println("---------dynamic proxy--------");
+        DynamicProxy proxy = new DynamicProxy(yuangao);
+        ClassLoader classLoader = yuangao.getClass().getClassLoader();
+        ILawsuit lawyer2 = (ILawsuit) Proxy.newProxyInstance(classLoader, new Class[]{ILawsuit.class}, proxy);
+        lawyer2.submit();
+        lawyer2.burden();
+        lawyer2.defend();
+        lawyer2.finish();
+    }
+}
+```
+
+运行结构
+```
+---------dynamic proxy--------
+老板拖欠工资，特此申请仲裁！
+这是合同书以及一年内工资卡流水账。
+证据确凿，不能再说什么了。
+诉讼成功，判决老板七日内结算工资。
+```
+
+#7.参考
 [http://www.cnblogs.com/linjiqin/archive/2011/02/18/1957600.html](http://www.cnblogs.com/linjiqin/archive/2011/02/18/1957600.html)
 [http://www.cnblogs.com/jqyp/archive/2010/08/20/1805041.html](http://www.cnblogs.com/jqyp/archive/2010/08/20/1805041.html)

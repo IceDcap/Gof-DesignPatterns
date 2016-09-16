@@ -124,3 +124,104 @@ result
     save my document: sophia
     close my document: sophia
     
+
+对于工厂方法模式中的具体工厂中要创建的具体产品可以使用反射机制，智能化创建。例如,有三款ConcreteProduct分别为AudiQ3、AudiQ5、AudiQ7
+
+```java
+public abstract class AudiCar {
+    public abstract void drive();
+    public abstract void selfNavigation();
+}
+
+public class AudiQ3 extends AudiCar {
+    @Override
+    public void drive() {
+        System.out.println("Q3 drive.");
+    }
+
+    @Override
+    public void selfNavigation() {
+        System.out.println("Q3 self navigation.");
+    }
+}
+
+public class AudiQ5 extends AudiCar {
+    @Override
+    public void drive() {
+        System.out.println("Q5 drive.");
+    }
+
+    @Override
+    public void selfNavigation() {
+        System.out.println("Q5 self navigation.");
+    }
+}
+
+public class AudiQ7 extends AudiCar {
+    @Override
+    public void drive() {
+        System.out.println("Q7 drive.");
+    }
+
+    @Override
+    public void selfNavigation() {
+        System.out.println("Q7 self navigation.");
+    }
+}
+```
+
+对应的AbstractFactory，使用反射来创建产品
+```java
+public abstract class AudiFactory {
+    public abstract <A extends AudiCar> A createAudi(Class<A> clz);
+}
+
+public class AudiCarFactory extends AudiFactory {
+    @Override
+    public <A extends AudiCar> A createAudi(Class<A> clz) {
+        AudiCar audiCar = null;
+        try {
+            audiCar  = (AudiCar) Class.forName(clz.getName()).newInstance();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return (A)audiCar;
+    }
+}
+
+```
+
+对应的客户端以及打印情况如下
+```java
+public class AudiClient {
+    public static void main(String[] args) {
+        AudiFactory factory = new AudiCarFactory();
+        AudiQ3 q3 = factory.createAudi(AudiQ3.class);
+        q3.drive();
+        q3.selfNavigation();
+
+        AudiQ5 q5 = factory.createAudi(AudiQ5.class);
+        q5.drive();
+        q5.selfNavigation();
+
+        AudiQ7 q7 = factory.createAudi(AudiQ7.class);
+        q7.drive();
+        q7.selfNavigation();
+
+    }
+}
+
+```
+
+```
+Q3 drive.
+Q3 self navigation.
+Q5 drive.
+Q5 self navigation.
+Q7 drive.
+Q7 self navigation.
+```

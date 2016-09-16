@@ -110,4 +110,187 @@ result
     creational product A2 success!
     creational product B2 success!
     
-    
+
+
+汽车生产车间，分别要生产三款车型，Q3、Q5、Q7。它们分别有不同的部件组成，主要区别在于轮胎、引擎和制动系统。将这三种部件分别作为AbstractProduct，并且设计出它们分别对应的ConcreteProduct
+
+```java
+public interface ITire {
+    void tire();
+}
+
+public class NormalTire implements ITire{
+    @Override
+    public void tire() {
+        System.out.println("normal tire.");
+    }
+}
+
+public class SUVTire implements ITire {
+    @Override
+    public void tire() {
+        System.out.println("SUV tire.");
+    }
+}
+
+
+public interface IEngine {
+    void engine();
+}
+
+public class DomesticEngine implements IEngine {
+    @Override
+    public void engine() {
+        System.out.println("国产发动机");
+    }
+}
+
+public class ImportEngine implements IEngine {
+    @Override
+    public void engine() {
+        System.out.println("进口发动机");
+    }
+}
+
+
+public interface IBrake {
+    void brake();
+}
+
+public class NormalBrake implements IBrake {
+    @Override
+    public void brake() {
+        System.out.println("普通制动");
+    }
+}
+
+public class SeniorBrake implements IBrake {
+    @Override
+    public void brake() {
+        System.out.println("高级制动");
+    }
+}
+
+```
+
+有了AbstractProduct和ConcreteProduct后，就可以定义抽象工厂了CarFactory
+
+```java
+public abstract class CarFactory {
+    /**
+     * 生成轮胎
+     * @return
+     */
+    public abstract ITire createTire();
+
+    /**
+     * 生产发动机
+     * @return
+     */
+    public abstract IEngine createEngine();
+
+    /**
+     * 生产制动系统
+     * @return
+     */
+    public abstract IBrake createBrake();
+}
+```
+
+最后设计具体工厂，它们分别代表三种车型的生产车间Q3Factory、Q5Factory、Q7Factory
+
+```java
+public class Q3Factory extends CarFactory {
+    @Override
+    public ITire createTire() {
+        return new NormalTire();
+    }
+
+    @Override
+    public IEngine createEngine() {
+        return new DomesticEngine();
+    }
+
+    @Override
+    public IBrake createBrake() {
+        return new NormalBrake();
+    }
+}
+
+public class Q5Factory extends CarFactory {
+    @Override
+    public ITire createTire() {
+        return new SUVTire();
+    }
+
+    @Override
+    public IEngine createEngine() {
+        return new ImportEngine();
+    }
+
+    @Override
+    public IBrake createBrake() {
+        return new SeniorBrake();
+    }
+}
+
+public class Q7Factory extends CarFactory {
+    @Override
+    public ITire createTire() {
+        return new SUVTire();
+    }
+
+    @Override
+    public IEngine createEngine() {
+        return new ImportEngine();
+    }
+
+    @Override
+    public IBrake createBrake() {
+        return new SeniorBrake();
+    }
+}
+```
+
+客户端打印为
+```java
+public class CarClient {
+    public static void main(String[] args) {
+        CarFactory factoryQ3 = new Q3Factory();
+        factoryQ3.createTire().tire();
+        factoryQ3.createEngine().engine();
+        factoryQ3.createBrake().brake();
+        System.out.println("---------------------");
+
+        CarFactory factoryQ5 = new Q5Factory();
+        factoryQ5.createTire().tire();
+        factoryQ5.createEngine().engine();
+        factoryQ5.createBrake().brake();
+        System.out.println("---------------------");
+
+
+        CarFactory factoryQ7 = new Q7Factory();
+        factoryQ7.createTire().tire();
+        factoryQ7.createEngine().engine();
+        factoryQ7.createBrake().brake();
+    }
+}
+
+```
+
+输出结果为
+
+```
+normal tire.
+国产发动机
+普通制动
+---------------------
+SUV tire.
+进口发动机
+高级制动
+---------------------
+SUV tire.
+进口发动机
+高级制动
+
+```

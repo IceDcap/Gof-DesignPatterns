@@ -181,3 +181,9 @@ result
     execute Plan A for ASCII to convert character
     Product ASCII Text
     
+    
+在实际开发中Director角色经常被省略掉，而直接使用一个Builder来进行对象的组装，这个Builder通常为链式调用，它的关键点是每一个setter方法都返回自身（return this）。例如：
+
+> new TestBuilder().setA("A").setB("B").create();
+
+通过这种形式不仅去除了Director角色，整个结构也更加简单，也能对product对象的组装过程有更精细的控制。
